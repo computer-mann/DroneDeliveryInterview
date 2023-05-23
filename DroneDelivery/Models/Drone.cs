@@ -9,7 +9,7 @@ namespace DroneDelivery.Models
         public string SerialNumber { get; set; }
         public Model Model { get; set; }
         [Range(0, 500)]
-        public double Weight { get; set; }
+        public double WeightLimit { get; set; }
         public State State { get; set; }
         [Range(0,100)]
         public int BatteryCapacity { get; set; }
