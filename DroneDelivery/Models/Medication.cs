@@ -9,7 +9,7 @@ namespace DroneDelivery.Models
         public string Name { get; set; }
         [Required]
         public double Weight { get; set; }
-        [Required]
+        [Required,MinLength(4)]
         [RegularExpression("^[A-Z0-9_]*$")]
         public string Code { get; set; }
         [Required]

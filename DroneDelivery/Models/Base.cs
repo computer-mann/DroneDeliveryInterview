@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DroneDelivery.Models
 {
@@ -6,7 +7,8 @@ namespace DroneDelivery.Models
     {
         [Key]
         public int Id { get; set; }
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        //    [Timestamp]
+        //    public byte[] RowVersion { get; set; }
+        
     }
 }
