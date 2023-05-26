@@ -20,18 +20,18 @@ namespace DroneDelivery.Controllers
         }
 
         [HttpPost("/medication")]
-        public async Task<IActionResult> CreateMedication(CreateMedicationViewModel vm) 
+        public async Task<IActionResult> CreateMedication([FromBody] CreateMedicationViewModel vm) 
         {
             if (vm == null) return BadRequest(new ErrorViewModel("Empty request body."));
 
-            var medication=new Medication() { Name = vm.Name , Image=vm.Image,Code="",Weight=300};
+            var medication=new Medication() { Name = vm.Name , Image=vm.Image,Code=vm.Code,Weight=300};
             var res=_dbContext.Medications.Add(medication);
             await _dbContext.SaveChangesAsync();
             return Created($"/medication/{res.Entity.Id}",medication);
         }
 
         [HttpPut("/medication/{id}")]
-        public async Task<IActionResult> EditMedication(int? id, EditMedicationViewModel vm)
+        public async Task<IActionResult> EditMedication(int? id, [FromBody] EditMedicationViewModel vm)
         {
             if (id == null) return BadRequest(new ErrorViewModel("Resource not found."));
 

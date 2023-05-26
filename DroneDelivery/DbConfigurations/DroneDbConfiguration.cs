@@ -8,7 +8,7 @@ namespace DroneDelivery.DbConfigurations
     {
         public void Configure(EntityTypeBuilder<Drone> builder)
         {
-            builder.Property(p => p.RowVersion).IsRowVersion();
+           // builder.Property(p => p.RowVersion).IsRowVersion();
         }
     }
 }

@@ -13,8 +13,9 @@ namespace DroneDelivery.Models.Db
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(MedicationDbConfiguration).Assembly);
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(DroneDbConfiguration).Assembly);
+            //    modelBuilder.ApplyConfigurationsFromAssembly(typeof(MedicationDbConfiguration).Assembly);
+            //    modelBuilder.ApplyConfigurationsFromAssembly(typeof(DroneDbConfiguration).Assembly);
+            //}
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DroneDelivery.Filters;
+﻿using DroneDelivery.BackgroundTasks;
+using DroneDelivery.Filters;
 using DroneDelivery.Models.Db;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ namespace DroneDelivery
             services.AddSwaggerGen();
             services.Configure<ApiBehaviorOptions>(options=> options.SuppressModelStateInvalidFilter =true);
             services.AddScoped<CustomModelStateValidationAttribute>();
+            services.AddHostedService<CheckBatteryLevelsBackgroundService>();
         }
 
         public static void Configure(WebApplication app)
