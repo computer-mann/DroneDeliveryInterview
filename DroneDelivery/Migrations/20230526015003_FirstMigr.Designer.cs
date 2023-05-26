@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DroneDelivery.Migrations.Drone
+namespace DroneDelivery.Migrations
 {
     [DbContext(typeof(DroneDeliveryDbContext))]
-    [Migration("20230524073539_RemovedRowversion")]
-    partial class RemovedRowversion
+    [Migration("20230526015003_FirstMigr")]
+    partial class FirstMigr
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

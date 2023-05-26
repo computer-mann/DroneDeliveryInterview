@@ -1,4 +1,6 @@
-﻿using DroneDelivery.Models.Db;
+﻿using DroneDelivery.Filters;
+using DroneDelivery.Models.Db;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DroneDelivery
@@ -13,6 +15,8 @@ namespace DroneDelivery
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            services.Configure<ApiBehaviorOptions>(options=> options.SuppressModelStateInvalidFilter =true);
+            services.AddScoped<CustomModelStateValidationAttribute>();
         }
 
         public static void Configure(WebApplication app)

@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace DroneDelivery.Migrations.Drone
+namespace DroneDelivery.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstMigration : Migration
+    public partial class FirstMigr : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,8 +20,7 @@ namespace DroneDelivery.Migrations.Drone
                     Model = table.Column<int>(type: "INTEGER", nullable: false),
                     WeightLimit = table.Column<double>(type: "REAL", nullable: false),
                     State = table.Column<int>(type: "INTEGER", nullable: false),
-                    BatteryCapacity = table.Column<int>(type: "INTEGER", nullable: false),
-                    Timestamp = table.Column<byte[]>(type: "BLOB", rowVersion: true, nullable: false)
+                    BatteryCapacity = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -37,8 +36,7 @@ namespace DroneDelivery.Migrations.Drone
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Weight = table.Column<double>(type: "REAL", nullable: false),
                     Code = table.Column<string>(type: "TEXT", nullable: false),
-                    Image = table.Column<string>(type: "TEXT", nullable: false),
-                    Timestamp = table.Column<byte[]>(type: "BLOB", rowVersion: true, nullable: false)
+                    Image = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

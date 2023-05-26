@@ -1,4 +1,5 @@
-﻿using DroneDelivery.Models;
+﻿using DroneDelivery.Filters;
+using DroneDelivery.Models;
 using DroneDelivery.Models.Db;
 using DroneDelivery.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +10,7 @@ namespace DroneDelivery.Controllers
 {
     //[Route("api/[controller]")]
     [ApiController]
+    [ServiceFilter(typeof(CustomModelStateValidationAttribute))]
     public class MedicationController : ControllerBase
     {
         private readonly DroneDeliveryDbContext _dbContext;
@@ -21,7 +23,7 @@ namespace DroneDelivery.Controllers
         public async Task<IActionResult> CreateMedication(CreateMedicationViewModel vm) 
         {
             if (vm == null) return BadRequest(new ErrorViewModel("Empty request body."));
-          //  if(!ModelState.IsValid)  return BadRequest(new ErrorViewModel("Request not good.")); 
+
             var medication=new Medication() { Name = vm.Name , Image=vm.Image,Code="",Weight=300};
             var res=_dbContext.Medications.Add(medication);
             await _dbContext.SaveChangesAsync();

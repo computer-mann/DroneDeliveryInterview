@@ -2,25 +2,13 @@
 
 #nullable disable
 
-namespace DroneDelivery.Migrations.Drone
+namespace DroneDelivery.Migrations
 {
     /// <inheritdoc />
-    public partial class RemovedRowversion : Migration
+    public partial class EntityTypeConf : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropColumn(
-                name: "RowVersion",
-                table: "Medications");
-
-            migrationBuilder.DropColumn(
-                name: "RowVersion",
-                table: "Drones");
-        }
-
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<byte[]>(
                 name: "RowVersion",
@@ -37,6 +25,18 @@ namespace DroneDelivery.Migrations.Drone
                 rowVersion: true,
                 nullable: false,
                 defaultValue: new byte[0]);
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropColumn(
+                name: "RowVersion",
+                table: "Medications");
+
+            migrationBuilder.DropColumn(
+                name: "RowVersion",
+                table: "Drones");
         }
     }
 }

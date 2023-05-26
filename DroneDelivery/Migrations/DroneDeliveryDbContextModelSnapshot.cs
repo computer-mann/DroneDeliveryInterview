@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DroneDelivery.Migrations.Drone
+namespace DroneDelivery.Migrations
 {
     [DbContext(typeof(DroneDeliveryDbContext))]
     partial class DroneDeliveryDbContextModelSnapshot : ModelSnapshot
@@ -27,6 +27,12 @@ namespace DroneDelivery.Migrations.Drone
 
                     b.Property<int>("Model")
                         .HasColumnType("INTEGER");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("BLOB");
 
                     b.Property<string>("SerialNumber")
                         .IsRequired()
@@ -61,6 +67,12 @@ namespace DroneDelivery.Migrations.Drone
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("BLOB");
 
                     b.Property<double>("Weight")
                         .HasColumnType("REAL");
